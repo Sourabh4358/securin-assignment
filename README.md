@@ -73,3 +73,53 @@ npm install
 npm run dev
 
 Frontend runs on http://localhost:5173.
+
+├── README.md
+├── backend
+    ├── .env
+    ├── .gitignore
+    ├── US_recipes.json
+    ├── app.js
+    ├── config
+    │   ├── db.js
+    │   └── env.js
+    ├── controllers
+    │   └── recipeController.js
+    ├── models
+    │   └── Recipe.js
+    ├── package-lock.json
+    ├── package.json
+    ├── routes
+    │   └── recipeRoutes.js
+    ├── seed
+    │   └── seedRecipes.js
+    ├── server.js
+    ├── services
+    │   └── recipeService.js
+    └── utils
+    │   └── parseRecipes.js
+└── frontend
+    ├── .gitignore
+        ├── README.md
+        ├── eslint.config.js
+        ├── index.html
+        ├── package-lock.json
+        ├── package.json
+        ├── src
+            ├── App.jsx
+            ├── RecipeTable.jsx
+            ├── components
+            │   ├── Filters.jsx
+            │   ├── RecipeDetailsDrawer.jsx
+            │   ├── RecipeRow.jsx
+            │   └── RecipesTable.jsx
+            ├── index.css
+            └── main.jsx
+        └── vite.config.js
+
+    ## Pictures
+
+    ![Recipe Management Application home page showing a table of recipes with columns for title, cuisine, calories, rating, and total time. The interface includes a search bar and filter options above the table. The design uses a clean layout with light colors and clear typography. The overall tone is welcoming and organized. Visible text: Home, Recipes, Search, Filter, Calories, Rating, Total Time.](./public/securin/Capture1.JPG)
+    ![](./public/securin/Capture2.JPG)
+    ![](./public/securin/Capture3.JPG)
+    ![](./public/securin/Capture4.JPG)
