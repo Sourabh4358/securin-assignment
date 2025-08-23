@@ -1,3 +1,14 @@
+
+# Pictures
+
+![Home Page](./screenshots/Capture1.JPG)
+
+![Filter](./screenshots/Capture2.JPG)
+
+![Recipe Details](./screenshots/Capture3.JPG)
+
+![Add Recipe](./screenshots/Capture4.JPG)
+
 # Recipe Management Application
 
 A full-stack web application to view, search, and manage recipes.  
@@ -117,9 +128,5 @@ Frontend runs on http://localhost:5173.
             └── main.jsx
         └── vite.config.js
 
-    ## Pictures
 
-  ![Home Page](./screenshots/Capture1.JPG)
-![](./screenshots/Capture2.JPG)
-![ ](./screenshots/Capture3.JPG)
-![ ](./screenshots/Capture4.JPG)
+
