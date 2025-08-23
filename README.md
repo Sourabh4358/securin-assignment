@@ -119,12 +119,7 @@ Frontend runs on http://localhost:5173.
 
     ## Pictures
 
-    ![Recipe Management Application home page showing a table of recipes with columns for title, cuisine, calories, rating, and total time. The interface includes a search bar and filter options above the table. The design uses a clean layout with light colors and clear typography. The overall tone is welcoming and organized. Visible text: Home, Recipes, Search, Filter, Calories, Rating, Total Time.](./screenshots/Capture1.JPG)
-
-    ![](./screenshots/Capture2.JPG)
-
-
-    ![](./screenshots/Capture3.JPG)
-
-    
-    ![](./screenshots/Capture4.JPG)
+  ![Home Page](./screenshots/Capture1.JPG)
+![](./screenshots/Capture2.JPG)
+![ ](./screenshots/Capture3.JPG)
+![ ](./screenshots/Capture4.JPG)
