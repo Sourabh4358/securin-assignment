@@ -10,24 +10,27 @@ const recipeRoutes = require("./routes/recipeRoutes");
 const path = require("path");
 require("dotenv").config();
 
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// =====================
 // Middleware
+// =====================
 app.use(express.json());
 app.use(helmet()); // Security headers
 app.use(compression()); // Gzip compression
 app.use(morgan("dev")); // Logging
 app.use(
   cors({
-    origin: "http://localhost:5173", // React dev server
+    origin: process.env.CORS_ORIGIN || "http://localhost:5173", // React dev server in dev
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
 
-// Routes
+// =====================
+// API Routes
+// =====================
 app.use("/api/recipes", recipeRoutes);
 
 // Health check
@@ -35,16 +38,20 @@ app.get("/", (req, res) => {
   res.status(200).send("Recipe API is running...");
 });
 
-// Serve frontend (production)
+// =====================
+// Serve Frontend in Production
+// =====================
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "dist")));
+  app.use(express.static(path.join(__dirname, "..", "frontend", "dist")));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
   });
 }
 
-// Global Error Handler (production-safe)
+// =====================
+// Global Error Handler
+// =====================
 app.use((err, req, res, next) => {
   console.error("Error:", err.stack);
   res.status(err.statusCode || 500).json({
@@ -52,6 +59,9 @@ app.use((err, req, res, next) => {
   });
 });
 
+// =====================
+// Start Server
+// =====================
 (async () => {
   try {
     // Connect to MongoDB
@@ -63,17 +73,17 @@ app.use((err, req, res, next) => {
       const filePath = path.join(__dirname, "US_recipes.json");
       const recipes = parseRecipes(filePath);
       await Recipe.insertMany(recipes);
-      console.log(`Seeded ${recipes.length} recipes`);
+      console.log(`✅ Seeded ${recipes.length} recipes`);
     } else {
-      console.log(`Recipes already exist: ${count} documents`);
+      console.log(`✅ Recipes already exist: ${count} documents`);
     }
 
-    // Start server
+    // Start Express server
     app.listen(PORT, () =>
-      console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+      console.log(`🚀 Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
     );
   } catch (error) {
-    console.error("Server failed to start:", error);
+    console.error("❌ Server failed to start:", error);
     process.exit(1); // Exit process in case of fatal error
   }
 })();
